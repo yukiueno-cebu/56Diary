@@ -15,8 +15,7 @@
       <p>{{$diary->title}}</p>
       <p>{{$diary->body}}</p>
       <p>{{$diary->created_at}}</p>
-
-
+      <a href="{{ route('diary.edit', ['id' => $diary->id]) }}" class="btn btn-success">投稿</a>
       <form action="{{route('diary.destroy',['id' => $diary->id ])}}" method="POST" class="d-inline">
       @csrf
       <!-- DELETEメソッドを使いますという合図 -->

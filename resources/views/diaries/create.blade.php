@@ -37,7 +37,8 @@
                   <textarea id="body" class="form-control" name="body" >{{old('body')}}</textarea>
                 </div>
                 <div class="text-right">
-                  <button type="submit" class="btn btn-primary">投稿</button>
+                  <button type="submit" class="btn btn-primary">編集
+                  </button>
                 </div>
                 </form>
             </div>
