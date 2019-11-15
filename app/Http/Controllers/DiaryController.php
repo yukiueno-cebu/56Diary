@@ -54,7 +54,7 @@ class DiaryController extends Controller
     //日記を削除する為のメソッド
     public function destroy (int $id)
     {
-        
+
         //diaryモデルを使用してIDが一致する日記の取得
         $diary = Diary::find($id);
         //取得した日記の削除
