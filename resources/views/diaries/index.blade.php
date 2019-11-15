@@ -22,9 +22,9 @@
       <!-- DELETEメソッドを使いますという合図 -->
       @method('delete')
         <button class="btn btn-danger">削除</button>
-      
+
       </form>
-  
+
 
   </div>
   @endforeach
