@@ -12,7 +12,7 @@
 */
 //('このURLの時'、'コントローラー＠メソッド')
 
-
+Route::get('/','DiaryController@index')->name('diary.index');
 Auth::routes();
 
 Route::group(['middleware' => ['auth']],function(){
