@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/app.css">
-    <title>一覧表示画面</title>
-</head>
+
+<!-- layout.blade.phpを読み込む -->
+@extends('layouts.app')
+
+@section('title','一覧')
+
+@section('content')
+
 <body>
   <a href="{{route('diary.create')}}" class="btn btn-primary btn-block">
   新規投稿</a>
@@ -15,7 +14,8 @@
       <p>{{$diary->title}}</p>
       <p>{{$diary->body}}</p>
       <p>{{$diary->created_at}}</p>
-      <a href="{{ route('diary.edit', ['id' => $diary->id]) }}" class="btn btn-success">投稿</a>
+      <a href="{{ route('diary.edit', ['id' => $diary->id]) }}" class="btn btn-success">編集</a>
+      
       <form action="{{route('diary.destroy',['id' => $diary->id ])}}" method="POST" class="d-inline">
       @csrf
       <!-- DELETEメソッドを使いますという合図 -->
@@ -27,6 +27,6 @@
 
   </div>
   @endforeach
-</body>
-</html>
 
+
+@endsection

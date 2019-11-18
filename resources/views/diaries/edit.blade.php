@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 @section('title', '編集画面')
 @section('content')
 <section class="container m-5">
@@ -21,7 +21,7 @@
           </div>
           <div class="form-group">
             <label for="body">本文</label>
-            <textarea id="body" class="form-control" name="body">{{ old('body', $diary->body) }}</textarea>
+            <textarea id="body" class="form-control" name="body">{{ old('body', php artisan migrate:fresh$diary->body) }}</textarea>
           </div>
           <div class="text-right">
             <button type="submit" class="btn btn-primary">編集</button>
