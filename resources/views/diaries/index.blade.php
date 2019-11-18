@@ -1,6 +1,6 @@
 
 <!-- layout.blade.phpを読み込む -->
-@extends('layout')
+@extends('layouts.app')
 
 @section('title','一覧')
 
@@ -14,6 +14,8 @@
       <p>{{$diary->title}}</p>
       <p>{{$diary->body}}</p>
       <p>{{$diary->created_at}}</p>
+
+      <a href="{{ route('diary.edit', ['id' => $diary->id]) }}" class="btn btn-success">編集</a>
 
 
       <form action="{{route('diary.destroy',['id' => $diary->id ])}}" method="POST" class="d-inline">
