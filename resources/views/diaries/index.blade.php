@@ -14,15 +14,20 @@
       <p>{{$diary->title}}</p>
       <p>{{$diary->body}}</p>
       <p>{{$diary->created_at}}</p>
-      <a href="{{ route('diary.edit', ['id' => $diary->id]) }}" class="btn btn-success">編集</a>
-      
-      <form action="{{route('diary.destroy',['id' => $diary->id ])}}" method="POST" class="d-inline">
-      @csrf
-      <!-- DELETEメソッドを使いますという合図 -->
-      @method('delete')
-        <button class="btn btn-danger">削除</button>
 
-      </form>
+	  <!-- Auth::check() :ログインしていたらtrue,他はfalseを勝手に実行してくれる構文 -->
+      @if(Auth::check() && $diary->user_id == Auth::user()->id)
+        <a href="{{ route('diary.edit', ['id' => $diary->id]) }}" class="btn btn-success">編集</a>
+        
+        <form action="{{route('diary.destroy',['id' => $diary->id ])}}" method="POST" class="d-inline">
+          @csrf
+          <!-- DELETEメソッドを使いますという合図 -->
+          @method('delete')
+          <button class="btn btn-danger">削除</button>
+
+        </form>
+	  @endif
+
 
 
   </div>
