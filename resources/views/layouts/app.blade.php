@@ -70,6 +70,9 @@
                                 </div>
                             </li>
                         @endguest
+
+                        <li class="nav-item">
+                            <img src="{{ asset(Auth::user()->picture_path) }}" height="40px">
                     </ul>
                 </div>
             </div>
