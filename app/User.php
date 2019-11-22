@@ -15,8 +15,11 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+
+     //$fillableここに設定されたカラム以外は値が設定できないようにする
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','picture_path',
     ];
 
     /**
@@ -27,4 +30,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function diaries()
+    {
+        //$this=users テーブル
+        //usersテーブルは0以上diariesテーブルのデータを持っている
+        return $this->hasMany('App/Diary');
+    }
 }
